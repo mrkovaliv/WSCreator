@@ -19,4 +19,16 @@ export const StyledButton = styled(Button)`
   padding: 7px 15px;
   border-radius: 5px;
   font-size: 18px;
+  margin-left: 25px;
+`;
+
+export const DefaultButton = styled(Button)`
+  background: #001529;
+  color: rgba(255, 255, 255, 0.85);
+  border: none;
+  cursor: pointer;
+  padding: 7px 15px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-left: 25px;
 `;

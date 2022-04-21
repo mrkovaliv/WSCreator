@@ -3,10 +3,19 @@ import thunkMiddleware from "redux-thunk";
 
 import headerReducer from "../redux/header/reducer";
 import settingsReducer from "../redux/settings/reducer";
+import mainReducer from "../redux/main/reducer";
+import aboutReducer from "../redux/about/reducer";
+import footerReducer from "../redux/footer/reducer";
+import teamReducer from "../redux/team/reducer";
+
 
 const rootReducer = combineReducers({
   header: headerReducer,
   settings: settingsReducer,
+  main: mainReducer,
+  about: aboutReducer,
+  footer: footerReducer,
+  team: teamReducer
 });
 
 const composeEnhancers =

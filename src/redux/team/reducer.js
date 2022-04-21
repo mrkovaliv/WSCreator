@@ -6,10 +6,10 @@ const INITIAL_STATE = {};
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CONSTANTS.SET_HEADER_VALUES:
+    case CONSTANTS.SET_VALUES:
       return { ...state, ...action.payload };
     case SET_DEFAULT_CONTENT:
-      return DEFAULT_CONTENT.header;
+      return DEFAULT_CONTENT.team;
     default:
       return state;
   }

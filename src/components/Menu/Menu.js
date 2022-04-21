@@ -12,16 +12,32 @@ const MENU_ITEMS = [
     link: "/header",
   },
   {
-    label: "Про себе",
+    label: "Головна",
+    link: "/main",
+  },
+  {
+    label: "Про нас",
     link: "/about",
+  },
+  {
+    label: "Команда",
+    link: "/team",
   },
   {
     label: "Послуги",
     link: "/services",
   },
   {
-    label: "Новинки",
-    link: "/novelty",
+    label: "Роботи",
+    link: "/works",
+  },
+  {
+    label: "Бренди",
+    link: "/brands",
+  },
+  {
+    label: "Відгуки",
+    link: "/reviews",
   },
   {
     label: "Footer",

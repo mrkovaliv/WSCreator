@@ -24,8 +24,13 @@ const BasicSettings = () => {
   const [showHeader, setShowHeader] = useState(setting.showHeader);
   const [showAbout, setShowAbout] = useState(setting.showAbout);
   const [showServices, setShowServices] = useState(setting.showServices);
-  const [showNovelty, setShowNovelty] = useState(setting.showNovelty);
+  const [showMain, setShowMain] = useState(setting.showMain);
   const [showFooter, setShowFooter] = useState(setting.showFooter);
+
+  const [showTeam, setShowTeam] = useState(setting.showTeam);
+  const [showReviews, setShowReviews] = useState(setting.showReviews);
+  const [showBrands, setShowBrands] = useState(setting.showBrands);
+  const [showWorks, setShowWorks] = useState(setting.showWorks);
 
   const handleSave = () => {
     dispatch(
@@ -33,9 +38,13 @@ const BasicSettings = () => {
         color,
         backgroundColor,
         showHeader,
+        showMain,
         showAbout,
         showServices,
-        showNovelty,
+        showTeam,
+        showReviews,
+        showBrands,
+        showWorks,
         showFooter,
       })
     );
@@ -75,16 +84,40 @@ const BasicSettings = () => {
             Про себе
           </Checkbox>
           <Checkbox
+             checked={showTeam}
+             onChange={() => setShowTeam(!showTeam)}
+          >
+            Команда
+          </Checkbox>
+          <Checkbox
+            checked={showReviews}
+            onChange={() => setShowReviews(!showReviews)}
+          >
+            Відгуки
+          </Checkbox>
+          <Checkbox
+            checked={showBrands}
+            onChange={() => setShowBrands(!showBrands)}
+          >
+            Бренди
+          </Checkbox>
+          <Checkbox
+            checked={showWorks}
+            onChange={() => setShowWorks(!showWorks)}
+          >
+            Роботи
+          </Checkbox>
+          <Checkbox
             checked={showServices}
             onChange={() => setShowServices(!showServices)}
           >
             Послуги
           </Checkbox>
           <Checkbox
-            checked={showNovelty}
-            onChange={() => setShowNovelty(!showNovelty)}
+            checked={showMain}
+            onChange={() => setShowMain(!showMain)}
           >
-            Новики
+            Головна
           </Checkbox>
           <Checkbox
             checked={showFooter}

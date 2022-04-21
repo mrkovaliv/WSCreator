@@ -16,7 +16,6 @@ const HeaderBlock = () => {
   const dispatch = useDispatch();
   const header = useSelector(selectHeaderValues);
 
-  const [logo, setLogo] = useState(header.logo);
   const [color, setColor] = useState(header.color);
   const [backgroundColor, setBackgroundColor] = useState(
     header.backgroundColor
@@ -39,7 +38,7 @@ const HeaderBlock = () => {
         telegram,
       })
     );
-    history.push("/about");
+    history.push("/main");
   };
 
   return (
@@ -100,16 +99,6 @@ const HeaderBlock = () => {
             onChange: (e) => setTelegram(e.target.value),
           }}
           label="Телеграм"
-        />
-        <Input
-          inputProps={{
-            placeholder: "#fff",
-            type: "file",
-            accept: "image/png, image/jpeg",
-            value: logo,
-            onChange: (e) => setLogo(e.target.value),
-          }}
-          label="Логотип"
         />
       </Space>
       <SaveButton onClick={handleSave} />
