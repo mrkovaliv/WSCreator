@@ -9,19 +9,15 @@ import {
   RemoveButton,
   StyledButtons,
   StyledButton,
-} from "./TeamItem.style";
+} from "./ServiceItem.style";
 
-const TeamItem = ({ item, saveItem, removeItem }) => {
-  const [color, setColor] = useState(item.color);
-  const [img, setImg] = useState(item.img);
-  const [name, setName] = useState(item.name);
+const ServiceItem = ({ item, saveItem, removeItem }) => {
+  const [title, setTitle] = useState(item.title);
   const [description, setDescription] = useState(item.description);
 
   const handleSave = () => {
     saveItem(item.id, {
-      color,
-      img,
-      name,
+      title,
       description,
     });
   };
@@ -31,27 +27,11 @@ const TeamItem = ({ item, saveItem, removeItem }) => {
       <Space direction="vertical">
         <Input
           inputProps={{
-            placeholder: "#fff",
-            value: color,
-            onChange: (e) => setColor(e.target.value),
+            placeholder: "ЗЙОМКА ПОРТФОЛІО",
+            value: title,
+            onChange: (e) => setTitle(e.target.value),
           }}
-          label="Колір картки"
-        />
-        <Input
-          inputProps={{
-            placeholder: "https://image.png",
-            value: img,
-            onChange: (e) => setImg(e.target.value),
-          }}
-          label="Аватар працівника"
-        />
-        <Input
-          inputProps={{
-            placeholder: "Фотограф",
-            value: name,
-            onChange: (e) => setName(e.target.value),
-          }}
-          label="Посада в компанії"
+          label="Назва послуги"
         />
         <TextArea
           textAreaProps={{
@@ -60,7 +40,7 @@ const TeamItem = ({ item, saveItem, removeItem }) => {
             rows: 8,
             onChange: (e) => setDescription(e.target.value),
           }}
-          label="Опис"
+          label="Опис послуги"
         />
       </Space>
       <StyledButtons>
@@ -73,4 +53,4 @@ const TeamItem = ({ item, saveItem, removeItem }) => {
   );
 };
 
-export default TeamItem;
+export default ServiceItem;

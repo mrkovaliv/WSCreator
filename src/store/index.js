@@ -7,6 +7,10 @@ import mainReducer from "../redux/main/reducer";
 import aboutReducer from "../redux/about/reducer";
 import footerReducer from "../redux/footer/reducer";
 import teamReducer from "../redux/team/reducer";
+import serviceReducer from "../redux/service/reducer";
+import reviewReducer from "../redux/review/reducer";
+import brandReducer from "../redux/brand/reducer";
+import workReducer from "../redux/work/reducer";
 
 
 const rootReducer = combineReducers({
@@ -15,7 +19,11 @@ const rootReducer = combineReducers({
   main: mainReducer,
   about: aboutReducer,
   footer: footerReducer,
-  team: teamReducer
+  team: teamReducer,
+  service: serviceReducer,
+  review: reviewReducer,
+  brand: brandReducer,
+  work: workReducer
 });
 
 const composeEnhancers =

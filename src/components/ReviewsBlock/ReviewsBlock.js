@@ -7,22 +7,26 @@ import { Space } from "antd";
 import Input from "../Input";
 import SaveButton from "../SaveButton";
 
-import { setValues } from "../../redux/team/actions";
-import { selectTeamValues } from "../../redux/team/selectors";
+import { setValues } from "../../redux/review/actions";
+import { selectReviewValues } from "../../redux/review/selectors";
 
-import TeamItem from "./TeamItem";
+import TeamItem from "./ReviewItem";
 
-import { Wrapper, StyledTeamList, StyledAddNewButton } from "./TeamBlock.style";
+import {
+  Wrapper,
+  StyledTeamList,
+  StyledAddNewButton,
+} from "./ReviewsBlock.style";
 
-const TeamBlock = () => {
+const ReviewsBlock = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const team = useSelector(selectTeamValues);
+  const review = useSelector(selectReviewValues);
 
-  const [color, setColor] = useState(team.color);
-  const [backgroundColor, setBackgroundColor] = useState(team.backgroundColor);
-  const [headerTitle, setHeaderTitle] = useState(team.headerTitle);
-  const [teamList, setTeamList] = useState(team.data || []);
+  const [color, setColor] = useState(review.color);
+  const [backgroundColor, setBackgroundColor] = useState(review.backgroundColor);
+  const [headerTitle, setHeaderTitle] = useState(review.headerTitle);
+  const [dataList, setDataList] = useState(review.reviews || []);
 
   const handleSave = () => {
     dispatch(
@@ -30,23 +34,23 @@ const TeamBlock = () => {
         color,
         backgroundColor,
         headerTitle,
-        data: teamList,
+        reviews: dataList,
       })
     );
-    history.push("/services");
+    history.push("/footer");
   };
 
   const handleAddNewTeamItem = () => {
-    setTeamList([...teamList, { id: Date.now() }]);
+    setDataList([...dataList, { id: Date.now() }]);
   };
 
   const removeItem = (id) => {
     const newTeamList = R.filter(
       R.compose(R.not, R.propEq("id", id)),
-      teamList
+      dataList
     );
 
-    setTeamList(newTeamList);
+    setDataList(newTeamList);
   };
 
   const saveItem = (id, item) => {
@@ -56,9 +60,9 @@ const TeamBlock = () => {
       }
 
       return teamItem;
-    }, teamList);
+    }, dataList);
 
-    setTeamList(newList);
+    setDataList(newList);
   };
 
   return (
@@ -82,14 +86,14 @@ const TeamBlock = () => {
         />
         <Input
           inputProps={{
-            placeholder: "Наша команда",
+            placeholder: "Наші відгуки",
             value: headerTitle,
             onChange: (e) => setHeaderTitle(e.target.value),
           }}
           label="Заголовок всього блоку"
         />
         <StyledTeamList>
-          {teamList.map((item) => (
+          {dataList.map((item) => (
             <TeamItem
               key={item.id}
               item={item}
@@ -99,7 +103,7 @@ const TeamBlock = () => {
           ))}
         </StyledTeamList>
         <StyledAddNewButton onClick={handleAddNewTeamItem}>
-          Додати працівника
+          Додати відгук
         </StyledAddNewButton>
       </Space>
       <SaveButton onClick={handleSave} />
@@ -107,4 +111,4 @@ const TeamBlock = () => {
   );
 };
 
-export default TeamBlock;
+export default ReviewsBlock;

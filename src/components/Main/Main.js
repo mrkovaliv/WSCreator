@@ -6,6 +6,10 @@ import BasicSettings from "../BasicSettings";
 import MainBlock from "../MainBlock";
 import About from "../About";
 import TeamBlock from "../TeamBlock";
+import ServicesBlock from "../ServicesBlock";
+import ReviewsBlock from "../ReviewsBlock";
+import BrandsBlock from "../BrandsBlock";
+import WorksBlock from "../WorksBlock";
 import Footer from "../FooterBlock";
 
 import { Wrapper } from "./Main.style";
@@ -24,6 +28,18 @@ const Main = () => (
       </Route>
       <Route path="/team">
         <TeamBlock />
+      </Route>
+      <Route path="/services">
+        <ServicesBlock />
+      </Route>
+      <Route path="/brands">
+        <BrandsBlock />
+      </Route>
+      <Route path="/reviews">
+        <ReviewsBlock />
+      </Route>
+      <Route path="/works">
+        <WorksBlock />
       </Route>
       <Route path="/footer">
         <Footer />
